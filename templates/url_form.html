@@ -1,0 +1,23 @@
+{% extends "base_url.html" %}
+
+{% block form %}
+
+{% if hash %}
+<div id="label">
+    <strong>
+        Here is your short url: <input type="text"
+        value="olaoluwa.me/{{hash}}">
+        </strong>
+</div>
+
+{% else %}
+<form method="post">
+    <div id="label"><strong>Paste your long url here:</strong></div>
+    <input type="text" name="url">
+    <input type="submit" class="btn btn-primary" value="Shorten Url">
+    {% if error %}
+    <span class="label label-important" id="error">Please enter a valid URL.</span>
+    {% endif %}
+</form>
+{% endif %}
+{% endblock %}

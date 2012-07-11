@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Url Shortener</title>
+    <link type="text/css" rel="stylesheet" href="../static/bootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="../static/bootstrap-responsive.css"/>
+    <link type="text/css" rel="stylesheet" href="../static/base_url.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="well" id="header_wrap">
+            <header>
+            <h1 id="title"> Simple Url Shortener </h1>
+            </header>
+        </div>
+        <div class="well" id="box_wrap">
+            <div id="box">
+        {% block form %}{% endblock %}
+             </div>
+        </div>
+    </div>
+    <footer> 
+    Created by: Olaoluwa Osuntokun 
+    <br>
+    Follow me on <a href="http://twitter.com/African_Coder">Twitter</a>
+    </footer>
+</body>
+</html>

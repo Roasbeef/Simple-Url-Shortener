@@ -1,0 +1,84 @@
+body, html {
+    height: 100%;
+}
+
+body {
+    background: #7db9e8; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, #7db9e8 0%, #1e5799 88%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#7db9e8), color-stop(88%,#1e5799)); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover, #7db9e8 0%,#1e5799 88%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover, #7db9e8 0%,#1e5799 88%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover, #7db9e8 0%,#1e5799 88%); /* IE10+ */
+    background: radial-gradient(ellipse at center, #7db9e8 0%,#1e5799 88%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+#header_wrap {
+    position: relative;
+    top: 90px;
+    margin: 0 auto;
+    width: 20%;
+    text-align: center;
+    text-shadow: 2px 2px 2px #3483D8;
+    -moz-box-shadow: 0 0 5px 1px #888;
+    -webkit-box-shadow: 0 0 5px 1px #888;
+    box-shadow: 0 0 5px 1px #888;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    background: black;
+    width: 100%;
+    height: 5%;
+    color: white;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Raleway', cursive;
+    font-weight: bold;
+}
+
+#box_wrap {
+    position: relative; 
+    top: 150px;
+    margin: 0 auto;
+    width: 50%;
+    -moz-box-shadow: 0 0 5px 1px #888;
+    -webkit-box-shadow: 0 0 5px 1px #888;
+    box-shadow: 0 0 5px 1px #888;
+}
+
+#box {
+    margin: 25px 25px 15px 25px;
+}
+
+input[type="text"] {
+    width: 80%;
+    height: 20%;
+}
+
+input[type="submit"] {
+    margin-left: 1%;
+    margin-bottom: 1.5%;
+    font-family: 'Raleway', cursive;
+    font-weight: bold;
+}
+
+
+#label {
+    margin-bottom: 2%;
+    font-family: 'Raleway', cursive;
+}
+
+#title {
+    font-family: 'Yellowtail', cursive;
+    color: black;
+    width: 100%;
+}
+
+#error {
+    font-family: 'Raleway', cursive;
+    font-weight: bold;
+    font-size: 13px;
+}
