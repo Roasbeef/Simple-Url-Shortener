@@ -37,7 +37,7 @@ class LinkShortener(BaseHandler):
                 l = Link()
                 l.seed(url)
                 h = l.hash
-                params = {'hash': h}
+                params = {'hash': h, 'link': str(l.url)}
                 self.render("url_form.html", **params)
             except ValueError:
                 params = {'error': True}
@@ -56,4 +56,4 @@ class LinkRedirect(BaseHandler):
             l.put()
             self.redirect('%s' % str(l.url))
         else:
-            self.redirect('/u')
+            self.redirect('/short')

@@ -5,5 +5,5 @@ import webapp2
 from views import LinkShortener, LinkRedirect
 
 
-app = webapp2.WSGIApplication([('/u/?', LinkShortener),
+app = webapp2.WSGIApplication([('/short/?', LinkShortener),
                                ('/(\w{4})', LinkRedirect)], debug=True)
