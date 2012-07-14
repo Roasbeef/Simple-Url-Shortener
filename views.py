@@ -33,15 +33,21 @@ class LinkShortener(BaseHandler):
             URL_RE = re.compile(r"(https|http)")
             if not URL_RE.match(url):
                 url = 'http://%s' % url
-            try:
-                l = Link()
-                l.seed(url)
-                h = l.hash
-                params = {'hash': h, 'link': str(l.url)}
+            u = Link.all().filter("url =", url).get()
+            #if url is already in datastore
+            if u:
+                params = {'hash': str(u.hash), 'link': str(u.url)}
                 self.render("url_form.html", **params)
-            except ValueError:
-                params = {'error': True}
-                self.render("url_form.html", **params)
+            else:
+                try:
+                    l = Link()
+                    l.seed(url)
+                    h = l.hash
+                    params = {'hash': h, 'link': str(l.url)}
+                    self.render("url_form.html", **params)
+                except ValueError:
+                    params = {'error': True}
+                    self.render("url_form.html", **params)
         else:
             params = {'error': True}
             self.render("url_form.html", **params)
