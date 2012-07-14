@@ -1,6 +1,4 @@
 from google.appengine.ext import db
-import os
-import urllib
 
 
 class Link(db.Model):
@@ -10,16 +8,18 @@ class Link(db.Model):
     hits = db.IntegerProperty()
 
     def seed(self, url):
-        if self.is_valid_url(url):
+        if Link.is_valid_url(url):
             self.url = url
-            self.hash = self.generate_unique_hash()
+            self.hash = Link.generate_unique_hash()
             self.hits = 0
             self.put()
             return self
         else:
             raise ValueError('Invalid URL')
 
-    def is_valid_url(self, url):
+    @staticmethod
+    def is_valid_url(url):
+        import urllib
         try:
             u = urllib.urlopen(url)
             if u.code != 200:
@@ -29,16 +29,19 @@ class Link(db.Model):
         except:
             return False
 
-    def generate_unique_hash(self):
-        h = self.generate_hash()
+    @staticmethod
+    def generate_unique_hash():
+        h = Link.generate_hash()
         l = Link.all().filter("hash =", h).get()
         if l:
-            #WARNING could caused infinite loop when no more unique hashes are left
-            #Fix when not feeling lazy
-            return self.generate_unique_hash()
+            return Link.generate_unique_hash()
         else:
             return h
 
+    @staticmethod
     def generate_hash(self):
-        #returns random 16-bit string
-        return os.urandom(2).encode('hex')
+        import string
+        import random
+        # 238,328 possible unique string now
+        return  ''.join([random.choice(string.letters + string.digits)
+                         for x in xrange(3)])
