@@ -62,8 +62,9 @@ class LinkRedirect(BaseHandler):
         if l:
             l.hits += 1
             l.put()
-            memcache.set(str(l.hash), l)
         else:
             l = Link.all().filter("hash =", hash).get()
+        
+        memcache.set(str(l.hash), l)
         self.redirect('%s' % str(l.url))
         
